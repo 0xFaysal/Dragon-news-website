@@ -15,12 +15,12 @@ const RightSideNav = () => {
     const { user, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
     const handleGoogleLogin = () => {
         loginWithGoogle()
-            .then((result) => console.log(result.user))
+            .then(() => console.log("Login Successful...."))
             .catch((error) => console.log(error));
     };
     const handleGitLogin = () => {
         loginWithGithub()
-            .then((result) => console.log(result.user))
+            .then(() => console.log("Login Successful...."))
             .catch((error) => console.log(error));
     };
 
