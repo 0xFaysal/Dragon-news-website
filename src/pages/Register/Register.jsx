@@ -13,11 +13,9 @@ function Register() {
         const photoUrl = e.target.photoUrl.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name, photoUrl, email, password);
 
         createUser(email, password)
-            .then((userCredential) => {
-                console.log(userCredential.user);
+            .then(() => {
                 profileUpdate(name, photoUrl)
                     .then(() => {
                         console.log("Profile updated");

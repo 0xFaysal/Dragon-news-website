@@ -12,18 +12,32 @@ import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const RightSideNav = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then((result) => console.log(result.user))
+            .catch((error) => console.log(error));
+    };
+    const handleGitLogin = () => {
+        loginWithGithub()
+            .then((result) => console.log(result.user))
+            .catch((error) => console.log(error));
+    };
 
     return (
         <div>
             {!user ? (
                 <div className='p-4 space-y-3 mb-6'>
                     <h2 className='text-3xl'>Login With</h2>
-                    <button className='btn btn-outline w-full'>
+                    <button
+                        onClick={handleGoogleLogin}
+                        className='btn btn-outline w-full'>
                         <FaGoogle></FaGoogle>
                         Google
                     </button>
-                    <button className='btn btn-outline w-full'>
+                    <button
+                        onClick={handleGitLogin}
+                        className='btn btn-outline w-full'>
                         <FaGithub></FaGithub>
                         Github
                     </button>

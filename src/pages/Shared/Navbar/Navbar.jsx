@@ -33,7 +33,7 @@ const Navbar = () => {
         if (user?.photoURL) {
             setPhotoUrl(user?.photoURL);
         }
-    }, [user]);
+    }, [user, user?.photoUrl]);
 
     return (
         <div className='navbar bg-base-100'>
@@ -65,6 +65,9 @@ const Navbar = () => {
                 <ul className='menu menu-horizontal px-1'>{navLinks}</ul>
             </div>
             <div className='navbar-end'>
+                <div>
+                    <h1>{user?.displayName}</h1>
+                </div>
                 <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
                     <div className='w-10 rounded-full'>
                         <img src={photoUrl} />
